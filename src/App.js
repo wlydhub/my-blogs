@@ -4,7 +4,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>hellow word</h1>  
+        this is wly blogs
       </div>
     );
   }
