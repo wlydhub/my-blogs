@@ -41,11 +41,25 @@ export const NavItem = styled.div`
     color:red;
   }
 `;
+export const SerchWrapper = styled.div`
+  position: relative;
+  float: left;
+  .iconfont {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    line-height:30px;
+    border-radius: 15px;
+    text-align: center;
+  }
+`;
 export const NavSearch = styled.input.attrs({
     placeholder:'搜索'
   })`
   width: 160px;
   height:38px;
+  padding: 0 20px;
   margin-top: 8px;
   margin-left: 20px;
   box-sizing: border-box;
@@ -60,7 +74,7 @@ export const Addition = styled.div`
   right:0;
   top:0;
   height:56px;
-`;Button
+`;
 export const Button = styled.div`
   float:right;
   margin-top:9px;
