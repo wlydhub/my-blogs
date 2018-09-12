@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/react-transition-group": "^2.0.14",
+    "immutable": "^3.8.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
