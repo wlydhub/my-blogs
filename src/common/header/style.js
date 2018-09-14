@@ -3,7 +3,7 @@ import logoPic from '../../statics/logo.png';
 
 export const HeaderWrapper = styled.div`
   height: 56px;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #AAAAAA;
   position: relative;
 `;
 export const Logo = styled.a`
@@ -92,6 +92,41 @@ export const NavSearch = styled.input.attrs({
     width: 160;
   }
 `;
+export const SerchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+`;
+export const SerchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color:#969696;
+`;
+export const SerchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+`;
+export const SerchInfoList = styled.div`
+  overflow: hidden;
+`;
+
+export const SerchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: #777;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+`;
 export const Addition = styled.div`
   position: absolute;
   right:0;
@@ -99,14 +134,14 @@ export const Addition = styled.div`
   height:56px;
 `;
 export const Button = styled.div`
-  float:right;
-  margin-top:9px;
-  margin-right:20px;
-  padding:0 20px;
-  line-height:38px;
-  border-radius:19px;
+  float: right;
+  margin-top: 9px;
+  margin-right: 20px;
+  padding: 0 20px;
+  line-height: 38px;
+  border-radius: 19px;
   border: 1px solid red;
-  font-size:14px;
+  font-size: 14px;
   &.reg {
     color: #ec6149;
   }
