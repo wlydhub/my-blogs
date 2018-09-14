@@ -7,7 +7,8 @@ import { actionCreators } from './store';
 class Header extends Component {
 
   getListArea() {
-    if(this.props.focused){
+    const { focused, list } = this.props;
+    if(focused){
       return (
         <SerchInfo>
           <SerchInfoTitle>
@@ -16,7 +17,7 @@ class Header extends Component {
           </SerchInfoTitle>
           <SerchInfoList>
             {
-              this.props.list.map((item) => {
+              list.map((item) => {
                 return <SerchInfoItem key = { item }>{ item }</SerchInfoItem>
               })
             }
@@ -29,6 +30,7 @@ class Header extends Component {
   }
 
   render(){
+    const { focused, handleInputFocus, handleInputBlur } = this.props;
     return(
       <HeaderWrapper>
         <Logo href='./' />
@@ -41,18 +43,18 @@ class Header extends Component {
           </NavItem>
           <SerchWrapper>
             <CSSTransition
-              in = { this.props.focused }
+              in = { focused }
               timeout = { 300 }
               classNames = "slide"
             >
               <NavSearch
-                className = {this.props.focused ? 'focused': ''}
-                onFocus = {this.props.handleInputFocus}
-                onBlur = {this.props.handleInputBlur}
+                className = { focused ? 'focused': '' }
+                onFocus = { handleInputFocus }
+                onBlur = { handleInputBlur }
               >
               </NavSearch>
             </CSSTransition>
-            <i className = {this.props.focused ? 'focused iconfont': 'iconfont'}>&#xe637;</i>
+            <i className = { focused ? 'focused iconfont': 'iconfont' }>&#xe637;</i>
             { this.getListArea() }
           </SerchWrapper>
         </Nav>
