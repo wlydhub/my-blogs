@@ -30,7 +30,10 @@ class Header extends Component {
         >
           <SerchInfoTitle>
                 热门搜索
-            <SerchInfoSwitch onClick = { () => handleChangePage(page ,totalPage) }>换一换</SerchInfoSwitch>
+            <SerchInfoSwitch onClick = { () => handleChangePage(page, totalPage, this.spanIcon) }> 
+              <i ref = {(icon)=>{ this.spanIcon = icon }} className='iconfont spin'>&#xe851;</i> 
+              换一换
+            </SerchInfoSwitch>
           </SerchInfoTitle>
           <SerchInfoList>
             { pageList }
@@ -67,7 +70,7 @@ class Header extends Component {
               >
               </NavSearch>
             </CSSTransition>
-            <i className = { focused ? 'focused iconfont': 'iconfont' }>&#xe637;</i>
+            <i className = { focused ? 'focused iconfont zoom': 'iconfont zoom' }>&#xe637;</i>
             { this.getListArea() }
           </SerchWrapper>
         </Nav>
@@ -109,7 +112,16 @@ const mapDispathToProps = (dispatch) => {
     handleMouseLeave(){
       dispatch(actionCreators.mouseLeave());
     },
-    handleChangePage(page ,totalPage){
+    handleChangePage(page, totalPage, spin){
+      // 用css旋转实现简单的动画效果
+      // 使用ref获取到真是的dom直接操作dom样式
+      let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+      if(originAngle){
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0;
+      }
+      spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)'
       if (page < totalPage) {
         dispatch(actionCreators.changePage(page + 1));
       } else {
