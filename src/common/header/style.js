@@ -21,7 +21,6 @@ export const Logo = styled.a`
 export const Nav = styled.div`
   width:960px;
   height:100%;
-  padding-right: 70px;
   box-sizing: border-box;
   margin: 0 auto;
 `;
