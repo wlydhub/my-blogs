@@ -17,7 +17,7 @@ export const HomeLeft = styled.div`
 `;
 export const HomeRight = styled.div`
   float: right;
-  width: 240px;
+  width: 280px;
 `;
 export const TopicWrapper = styled.div`
   overflow: hidden;
@@ -70,4 +70,88 @@ export const ListInfo = styled.div`
     line-height: 24px;
     color: #999;
   }
+`;
+export const RecommendWrapper = styled.div`
+  margin: 30px 0;
+  width: 280px;
+`;
+export const RecommendItem = styled.div`
+  width: 280px;
+  min-height: 50px;
+  background: url(${ (props) => props.imgUrl });
+  background-size: contain;
+  margin-bottom: 6px;
+  border-radius: 4px;
+`;
+export const WriterWrapper = styled.div`
+  margin: 30px 0;
+  width: 280px;
+`;
+export const WriterTitle = styled.div`
+  text-align: left;
+  font-size: 14px;
+  color: #969696;
+  margin: 0 0 20px;
+  text-align: left;
+  list-style: none;
+`;
+export const WriterItem = styled.div`
+  margin-top: 15px;
+  .photo {
+    float: left;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .attention {
+    float: right;
+    margin-top: 5px;
+    padding: 0;
+    font-size: 13px;
+    color: #42c02e;
+  }
+  .name {
+    padding-top: 5px;
+    margin-right: 60px;
+    font-size: 14px;
+    display: block;
+  }
+  .data {
+    font-size: 12px;
+    color: #969696;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+`;
+export const WriterInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+  cursor: pointer;
+  .spin {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 2px;
+    transition: all .2s ease-in;
+    transform-origin: center center;
+  }
+`;
+export const WriterLookAll = styled.div`
+  width: 280px;
+  height: 34px;
+  margin-top: 20px;
+  padding: 7px 7px 7px 12px;
+  font-size: 13px;
+  color: #787878;
+  background-color: #f7f7f7;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align:center;
+  line-height:19px;
 `;
