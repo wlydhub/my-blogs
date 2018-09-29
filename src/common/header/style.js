@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div`
   border-bottom: 1px solid #AAAAAA;
   position: relative;
 `;
-export const Logo = styled.a`
+export const Logo = styled.div`
   height: 58px;
   position: absolute;
   top: 0;
