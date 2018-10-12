@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, SerchWrapper, SerchInfo, SerchInfoTitle, SerchInfoSwitch, SerchInfoList, SerchInfoItem, NavSearch, Addition, Button } from './style';
 import { actionCreators } from './store';
+import { actionCreators as loginAtionCreators } from '../../pages/login/store';
 
 class Header extends Component {
 
@@ -47,7 +48,7 @@ class Header extends Component {
   }
 
   render(){
-    const { focused, list, handleInputFocus, handleInputBlur, login } = this.props;
+    const { focused, list, handleInputFocus, handleInputBlur, login, logout } = this.props;
     return(
       <HeaderWrapper>
         <Link to='/'>
@@ -57,7 +58,7 @@ class Header extends Component {
           <NavItem className='left active'>首页</NavItem>
           <NavItem className='left'>下载app</NavItem>
           { 
-            login ? <NavItem className='right'>退出</NavItem> : <Link to = '/login'><NavItem className='right'>登录</NavItem></Link>
+            login ? <NavItem onClick={logout} className='right'>退出</NavItem> : <Link to = '/login'><NavItem className='right'>登录</NavItem></Link>
           }
           <NavItem className='right'>
             <i className='iconfont'>&#xe636;</i>
@@ -138,6 +139,9 @@ const mapDispathToProps = (dispatch) => {
       } else {
         dispatch(actionCreators.changePage(1));
       }
+    },
+    logout(){
+      dispatch(loginAtionCreators.logout())
     }
   }
 }
