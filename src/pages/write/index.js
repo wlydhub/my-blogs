@@ -20,8 +20,10 @@ class Write extends PureComponent {
     const { loginStatus } = this.props;
     if(loginStatus){
       return (
-        <ReactQuill value={this.state.text}
-                    onChange={this.handleChange} />
+        <ReactQuill 
+          value={this.state.text}
+          onChange={this.handleChange} 
+        />
       )
     } else {
       return (
