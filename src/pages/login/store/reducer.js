@@ -3,6 +3,7 @@ import * as constants from './constants';
 
 const defaultState = fromJS({
   login: false,
+  register: false,
 })
 
 export default (state = defaultState, action) => {

@@ -7,31 +7,48 @@ import { LoginWrapper, LoginBox, Input, Button } from './style';
 class Login extends PureComponent {
 
   render() {
-    const { loginStatus } = this.props;
+    const { loginStatus, registerStatus } = this.props;
     if(loginStatus){
       return (
         <Redirect to = '/' />
       )
     } else {
-      return (
+      if(registerStatus) {
         <LoginWrapper>
-            <LoginBox>
-              <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
-              <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
-              <Button onClick = { () => this.props.login(this.account, this.password) } >登录</Button>
-            </LoginBox>
+          <LoginBox>
+            <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
+            <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
+            <Input placeholder = '确认密码' innerRef = { (input) => { this.password = input } } />
+            <Input placeholder = '确认密码' innerRef = { (input) => { this.password = input } } />
+            <Button onClick = { () => this.props.login(this.account, this.password) } >获取验证码</Button>
+            <Button onClick = { () => this.props.login(this.account, this.password) } >登录</Button>
+          </LoginBox>
         </LoginWrapper>
-      )
+      } else {
+        return (
+          <LoginWrapper>
+              <LoginBox>
+                <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
+                <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
+                <Button onClick = { () => this.props.login(this.account, this.password) } >登录</Button>
+              </LoginBox>
+          </LoginWrapper>
+        )
+      }
     }
   }
 }
 
 const mapState = (state) => ({
-  loginStatus: state.getIn(['login', 'login'])
+  loginStatus: state.getIn(['login', 'login']),
+  registerStatus: state.getIn(['login', 'register'])
 })
 
 const mapDispatch = (dispatch) => ({
   login(accountElem, passwordElem){
+    dispatch(actionCreators.login(accountElem.value, passwordElem.value))
+  },
+  register(accountElem, passwordElem, againPasswordElem, captchaElem){
     dispatch(actionCreators.login(accountElem.value, passwordElem.value))
   }    
 })
