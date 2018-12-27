@@ -7,23 +7,26 @@ import { LoginWrapper, LoginBox, Input, Button } from './style';
 class Login extends PureComponent {
 
   render() {
-    const { loginStatus, registerStatus } = this.props;
+    const { loginStatus, showStatus } = this.props;
     if(loginStatus){
       return (
         <Redirect to = '/' />
       )
     } else {
-      if(registerStatus) {
-        <LoginWrapper>
-          <LoginBox>
-            <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
-            <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
-            <Input placeholder = '确认密码' innerRef = { (input) => { this.password = input } } />
-            <Input placeholder = '确认密码' innerRef = { (input) => { this.password = input } } />
-            <Button onClick = { () => this.props.login(this.account, this.password) } >获取验证码</Button>
-            <Button onClick = { () => this.props.login(this.account, this.password) } >登录</Button>
-          </LoginBox>
-        </LoginWrapper>
+      if(showStatus) {
+        return (
+          <LoginWrapper>
+            <LoginBox>
+              <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
+              <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
+              <Input placeholder = '确认密码' innerRef = { (input) => { this.secondPassword = input } } />
+              <Input placeholder = '邮箱地址' innerRef = { (input) => { this.email = input } } />
+              <Input placeholder = '验证码' innerRef = { (input) => { this.captcha = input } } />
+              <Button onClick = { () => this.props.getCaptcha(this.email) } >获取验证码</Button>
+              <Button onClick = { () => this.props.login(this.account, this.password) } >登录</Button>
+            </LoginBox>
+          </LoginWrapper>
+        )
       } else {
         return (
           <LoginWrapper>
@@ -41,16 +44,16 @@ class Login extends PureComponent {
 
 const mapState = (state) => ({
   loginStatus: state.getIn(['login', 'login']),
-  registerStatus: state.getIn(['login', 'register'])
+  showStatus: state.getIn(['login', 'show'])
 })
 
 const mapDispatch = (dispatch) => ({
   login(accountElem, passwordElem){
     dispatch(actionCreators.login(accountElem.value, passwordElem.value))
   },
-  register(accountElem, passwordElem, againPasswordElem, captchaElem){
-    dispatch(actionCreators.login(accountElem.value, passwordElem.value))
-  }    
+  getCaptcha(emailElem){
+    dispatch(actionCreators.getCaptcha(emailElem.value))
+  }  
 })
 
 export default connect(mapState, mapDispatch)(Login);
