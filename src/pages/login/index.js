@@ -16,6 +16,7 @@ class Login extends PureComponent {
       if(showStatus) {
         return (
           <LoginWrapper>
+            <Button onClick = { () => this.props.changeStatus(showStatus) } >切换</Button>
             <LoginBox>
               <Input placeholder = '昵称' innerRef = { (input) => { this.name = input } } />
               <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
@@ -33,6 +34,7 @@ class Login extends PureComponent {
       } else {
         return (
           <LoginWrapper>
+              <Button onClick = { () => this.props.changeStatus(showStatus) } >切换</Button>
               <LoginBox>
                 <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
                 <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
@@ -59,7 +61,10 @@ const mapDispatch = (dispatch) => ({
   },
   getCaptcha(emailElem){
     dispatch(actionCreators.getCaptcha(emailElem.value))
-  }  
+  },
+  changeStatus(value){
+    dispatch(actionCreators.changeStatus(value))
+  }
 })
 
 export default connect(mapState, mapDispatch)(Login);

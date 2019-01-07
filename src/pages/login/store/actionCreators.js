@@ -2,9 +2,11 @@ import axios from 'axios';
 import * as constants from './constants';
 import * as http from '../../../http/http';
 
-export const changeLogin = ()=>({
+export const changeLogin = (data)=>({
   type: constants.CHANGE_LOGIN,
-  value: true,
+  login: true,
+  user: data.user,
+  token: data.token
 })
 
 export const logout = ()=>({
@@ -17,13 +19,18 @@ export const changeCaptchaState = ()=>({
   value: true,
 })
 
+export const changeStatus = (value) =>({
+  type: constants.CHANGE_STATUS,
+  value: !value,
+})
+
 export const login = (accound, password) => {
   return (dispatch) => {
-    axios.get(http.url + '/api/login.json?accound=' + accound + '&password=' + password)
+    axios.post(http.url + 'user/login',{ accound, password })
     .then((res)=>{
-      const result = res.data.data;
-      if(result){
-        dispatch(changeLogin())
+      const result = res.data;
+      if(result.success){
+        dispatch(changeLogin(result.data))
       }else{
         alert('登录失败')
       }
