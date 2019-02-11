@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
-import { LoginWrapper, LoginBox, Input, Button } from './style';
+import { LoginWrapper, LoginBox, Input, Button, SignInBox, Title } from './style';
 
 class Login extends PureComponent {
 
@@ -16,26 +16,26 @@ class Login extends PureComponent {
       if(showStatus) {
         return (
           <LoginWrapper>
-            <Button onClick = { () => this.props.changeStatus(showStatus) } >切换</Button>
-            <LoginBox>
+            <SignInBox>
+              <Title onClick = { () => this.props.changeStatus(showStatus) } >登录/注册</Title>
               <Input placeholder = '昵称' innerRef = { (input) => { this.name = input } } />
               <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
-              <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
-              <Input placeholder = '确认密码' innerRef = { (input) => { this.secondPassword = input } } />
+              <Input type="password" placeholder = '密码' innerRef = { (input) => { this.password = input } } />
+              <Input type="password" placeholder = '确认密码' innerRef = { (input) => { this.secondPassword = input } } />
               <Input placeholder = '邮箱地址' innerRef = { (input) => { this.email = input } } />
               <Input placeholder = '验证码' innerRef = { (input) => { this.captcha = input } } />
               <Button onClick = { () => this.props.getCaptcha(this.email) } >获取验证码</Button>
               <Button onClick = { () => this.props.signIn(this.name, this.account, this.password, this.secondPassword, this.email, this.captcha) } >
                 注册
               </Button>
-            </LoginBox>
+            </SignInBox>
           </LoginWrapper>
         )
       } else {
         return (
           <LoginWrapper>
-              <Button onClick = { () => this.props.changeStatus(showStatus) } >切换</Button>
               <LoginBox>
+                <Title onClick = { () => this.props.changeStatus(showStatus) } >登录/注册</Title>
                 <Input placeholder = '账号' innerRef = { (input) => { this.account = input } } />
                 <Input placeholder = '密码' innerRef = { (input) => { this.password = input } } />
                 <Button onClick = { () => this.props.login(this.account, this.password) } >登录</Button>
@@ -45,6 +45,12 @@ class Login extends PureComponent {
       }
     }
   }
+
+
+  
+
+
+
 }
 
 const mapState = (state) => ({

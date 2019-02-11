@@ -19,6 +19,15 @@ export const LoginBox = styled.div`
   padding-top: 20px;
 `;
 
+export const SignInBox = styled.div`
+  width: 400px; 
+  height: 400px;
+  margin: 80px auto;
+  background: #fff; 
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+  padding-top: 20px;
+`;
+
 export const Input = styled.input`
   display: block;
   width: 200px;
@@ -36,6 +45,14 @@ export const Button = styled.div`
   color: #fff;
   background: #3194d0;
   border-radius: 15px;
+  margin: 10px auto;
+  text-align: center;
+`;
+
+export const Title = styled.div`
+  width: 220px;
+  height: 40px;
+  line-height: 40px;
   margin: 10px auto;
   text-align: center;
 `;

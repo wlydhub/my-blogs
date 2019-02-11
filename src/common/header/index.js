@@ -58,7 +58,7 @@ class Header extends Component {
           <NavItem className='left active'>首页</NavItem>
           <NavItem className='left'>下载app</NavItem>
           { 
-            login ? <NavItem onClick={logout} className='right'>退出</NavItem> : <Link to = '/login'><NavItem className='right'>登录</NavItem></Link>
+            login ? <NavItem onClick={logout} className='right'>退出</NavItem> : <Link to = '/login'><NavItem className='right'>登录/注册</NavItem></Link>
           }
           <NavItem className='right'>
             <i className='iconfont'>&#xe636;</i>
@@ -88,9 +88,6 @@ class Header extends Component {
               写文章
             </Button>
           </Link>
-          {
-            login ? '' : <Button className='reg'>注册</Button>    
-          }
         </Addition>
       </HeaderWrapper>
     )
