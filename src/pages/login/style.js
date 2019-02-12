@@ -35,6 +35,7 @@ export const Input = styled.input`
   line-height: 30px;
   padding: 0 10px;
   color: #777;
+  border: 1px solid #e8e8e8;
   margin: 10px auto;
 `;
 
