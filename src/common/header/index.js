@@ -54,15 +54,15 @@ class Header extends Component {
         <Link to='/'>
           <Logo/>
         </Link>
+
         <Nav>
-          <NavItem className='left active'>首页</NavItem>
-          <NavItem className='left'>下载app</NavItem>
+          <Link to='/'>
+            <NavItem className='left active'>首页</NavItem>
+          </Link>
           { 
             login ? <NavItem onClick={logout} className='right'>退出</NavItem> : <Link to = '/login'><NavItem className='right'>登录/注册</NavItem></Link>
           }
-          <NavItem className='right'>
-            <i className='iconfont'>&#xe636;</i>
-          </NavItem>
+          
           <SerchWrapper>
             <CSSTransition
               in = { focused }
