@@ -1,36 +1,34 @@
 import styled from 'styled-components';
 
-export const WriteWrapper = styled.div`
-  position: absolute;
-  top: 56px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+export const DetailWrapper = styled.div`
+  overflow: hidden;
+  width: 620px;
+  margin: 0 auto;
+  padding-bottom: 100px;
 `;
 
-export const ToolbarWrapper = styled.div`
-  display: "flex";
-  alignItems: "center";
-  .update: {
-    width: 60px;
-    background: blue;
-    float: left;
-  };
+export const Input = styled.input`
+  border: 1px solid #ccc; 
+  width: 80%;
+  padding: 7px 0px;
+  border-radius: 3px;
+  padding-left:5px; 
 `;
 
-export const Butten = styled.div`
-  position: absolute;
-  right: 10px;
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
-  color: #fff;
-  background: #3194d0;
-  border-radius: 15px;
-  text-align: center;
-`;
+export const TextArea = styled.textarea`
+  border: 1px solid #ccc; 
+  width: 80%;
+  height: 50%;
+  padding: 7px 0px;
+  border-radius: 3px;
+  padding-left:5px; 
+`
 
-export const EditorWrapper = styled.div`
-  height: 100%;
-`;
-
+export const ShowDiv = styled.div`
+  border: 1px solid #ccc; 
+  width: 80%;
+  height: 50%;
+  padding: 7px 0px;
+  border-radius: 3px;
+  padding-left:5px; 
+`
